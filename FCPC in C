@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct FCPC 
+{
+    int at;
+    char name;
+    int bt;
+};
+
+int main()
+{
+  //trying to work the code here
+  int i, j ,k, l;
+  printf("please enter the number of process you want \n");
+  int P;
+  scanf("%d", &P);
+  struct FCPC F[P];
+  for(i = 0; i < P; i++)
+  {
+      scanf("%c %d %d", &F[i].name, &F[i].at, &F[i].bt);
+  }
+  	for(int k; k < P - 1; k++)
+	{
+		for(int j; j < P - i - 1; j++)
+		{
+			if(F[j].at > F[j+1].at)
+			{
+			struct FCPC temp;
+				temp = F[j];
+				F[j] = F[j+1];
+				F[j+1] = temp;
+				
+				
+			}
+		}
+	}
+	
+	for(l = 0; l < P; l++)
+	{
+	    printf(" %c ", &F[l].name);
+	}
+	
+}
